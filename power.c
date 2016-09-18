@@ -232,9 +232,9 @@ int sysfs_write(char *path, char *s)
 void set_feature(struct power_module *module, feature_t feature, int state)
 {
 #ifdef TAP_TO_WAKE_NODE
-    char tmp_str[NODE_MAX];
+    char tmp_str[100];
     if (feature == POWER_FEATURE_DOUBLE_TAP_TO_WAKE) {
-        snprintf(tmp_str, NODE_MAX, "%d", state);
+        snprintf(tmp_str, 100, "%d", state);
         sysfs_write(TAP_TO_WAKE_NODE, tmp_str);
     }
 #endif
